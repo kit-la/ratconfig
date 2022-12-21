@@ -1,4 +1,3 @@
-source /home/franko/ratbindunig
 set startupmessage 0
 echo joder que buenas tetas
 exec setxkbmap es
@@ -75,3 +74,29 @@ definekey top M-9 gselect 9
 
 addhook switchgroup other
 
+newkmap uni
+
+definekey uni 1 exec ratpoison -c "link 1" -c "readkey uni"
+definekey uni 2 exec ratpoison -c "link 2" -c "readkey uni"
+definekey uni 3 exec ratpoison -c "link 3" -c "readkey uni"
+definekey uni 4 exec ratpoison -c "link 4" -c "readkey uni"
+definekey uni 5 exec ratpoison -c "link 5" -c "readkey uni"
+definekey uni 6 exec ratpoison -c "link 6" -c "readkey uni"
+definekey uni 7 exec ratpoison -c "link 7" -c "readkey uni"
+definekey uni 8 exec ratpoison -c "link 8" -c "readkey uni"
+definekey uni 9 exec ratpoison -c "link 9" -c "readkey uni"
+definekey uni 0 exec ratpoison -c "link 0" -c "readkey uni"
+
+definekey uni exclam exec ratpoison -c "link M-1 top" -c "readkey uni"
+definekey uni quotedbl exec ratpoison -c "link M-2 top" -c "readkey uni"
+definekey uni periodcentered exec ratpoison -c "link M-3 top" -c "readkey uni"
+definekey uni dollar exec ratpoison -c "link M-4 top" -c "readkey uni"
+definekey uni percent exec ratpoison -c "link M-5 top" -c "readkey uni"
+definekey uni ampersand exec ratpoison -c "link M-6 top" -c "readkey uni"
+definekey uni slash exec ratpoison -c "link M-7 top" -c "readkey uni"
+definekey uni parenleft exec ratpoison -c "link M-8 top" -c "readkey uni"
+definekey uni parenright exec ratpoison -c "link M-9 top" -c "readkey uni"
+definekey uni equal exec ratpoison -c "link M-0 top" -c "readkey uni"
+
+definekey uni w windows
+definekey uni g groups
