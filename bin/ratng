@@ -1,0 +1,9 @@
+#!/bin/sh
+winname=$(ratpoison -c 'prompt Group Name | ')
+
+if [ -z $winname ]; then
+	autowinname=$(ratpoison -c info | cut -d "(" -f 3 | sed 's/.$//')
+	ratpoison -c "gnewbg $autowinname" -c "gmove $autowinname"
+else 
+	ratpoison -c "gnewbg $winname" -c "gmove $winname"
+fi

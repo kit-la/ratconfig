@@ -1,0 +1,3 @@
+#!/bin/sh
+search=$(ratpoison -c 'prompt Buskeda | ' | tr ' ' '+')
+st -e  w3m "www.google.com/search?q=$search" 2>/dev/null

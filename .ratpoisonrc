@@ -1,0 +1,77 @@
+source /home/franko/ratbindunig
+set startupmessage 0
+echo joder que buenas tetas
+exec setxkbmap es
+exec xsetroot -solid black -cursor_name left_ptr
+escape Super_L
+set bargravity c
+set gravity c
+set msgwait 6
+
+alias ratng exec ratng
+alias ratw3m exec ratw3m
+#alias qutebrowser exec qutebrowser $(ratpoison -c "prompt Buskeda | ")
+alias ratunig exec ratunig 
+
+unbind k
+unbind l
+unbind C-k
+unbind C-l 
+
+bind h focusleft
+bind j focusdown
+bind k focusup
+bind l focusright
+
+bind H exchangeleft
+bind J exchangedown
+bind K exchangeup
+bind L exchangeright
+
+unbind x
+unbind C-x
+bind Escape abort
+bind X kill
+bind x delete
+unbind R
+unbind C-R
+bind q remove
+bind R restart
+bind d swap
+	
+alias ratconfig exec st -e vim .ratpoisonrc
+bind s-BackSpace ratconfig
+bind Return exec st
+unbind c
+unbind C-c
+
+definekey top XF86AudioRaiseVolume exec ratpoison -c "echo $(ratvolume up)"
+definekey top XF86AudioLowerVolume exec ratpoison -c "echo $(ratvolume down)"
+definekey top XF86AudioMute exec ratpoison -c "echo $(ratvolume mute)"
+
+alias musik exec ratpoison -c "exec st -e pipe-viewer -n --player=musicmpv \"$(ratpoison -c 'prompt Search ')\""
+alias video exec ratpoison -c "exec st -e pipe-viewer --resolution 480p \"$(ratpoison -c 'prompt Search ')\""
+bind y musik 
+bind Y video
+
+bind t ratw3m
+#bind T qutebrowser
+
+bind g groups
+bind G gnext 
+bind m ratng
+bind D ratunig
+bind M gmove 
+definekey top M-0 gselect 0
+definekey top M-1 gselect 1
+definekey top M-2 gselect 2
+definekey top M-3 gselect 3
+definekey top M-4 gselect 4
+definekey top M-5 gselect 5
+definekey top M-6 gselect 6
+definekey top M-7 gselect 7
+definekey top M-8 gselect 8
+definekey top M-9 gselect 9
+
+addhook switchgroup other
+

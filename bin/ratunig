@@ -1,0 +1,22 @@
+#!/bin/sh
+
+
+graw=$(ratpoison -c groups)
+groups=$(printf "$graw" | sed -n -E 's/([0-9]*)[+-\*]([^"])/\(\1\)\2/p')
+gcurr=$(printf "$graw" | sed -n -E '/\*/{s/([0-9]*).*/\1/p}')
+
+ratpoison -c "remhook switchgroup other"
+
+spit() {
+for i in $groups; do
+	j=$(echo $i | cut -c 2)
+	ratpoison -c "gselect $j"
+	printf "= $i =\n"
+	ratpoison -c windows
+done 
+}
+
+
+ratpoison -c "gselect $gcurr" -c "set bargravity ne" -c "set msgwait 0" -c "addhook switchgroup other" -c "echo $(spit)" -c "set msgwait 6" -c "readkey uni" -c "set bargravity c"
+
+unset graw groups gcurr i j

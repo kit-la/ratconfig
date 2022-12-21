@@ -1,0 +1,18 @@
+#!/bin/sh
+
+case $1 in 
+	up) 
+#		amixer -D pulse set Master on > /dev/null
+		amixer -D pulse sset Master 5%+ | grep '%' | head -n 1 | cut -d ' ' -f 7 
+		#output=$(amixer -D pulse get Master | grep '%' | head -n 1 | cut -d ' ' -f 7)
+		;;
+	down)
+#		amixer -D pulse set Master on > /dev/null
+		amixer -D pulse sset Master 5%- | grep '%' | head -n 1 | cut -d ' ' -f 7 
+		;;
+	mute)
+		amixer -D pulse set Master 1+ toggle | grep '%' | head -n 1 | cut -d ' ' -f 8
+		;;
+esac
+
+exit 0

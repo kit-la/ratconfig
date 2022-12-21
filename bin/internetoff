@@ -1,0 +1,8 @@
+#!/bin/sh
+
+for i in "NetworkManager" "wpa_supplicant"; do
+	id=$(ps -e | sed -n -E "/${i}/{s/^[[:space:]]*([0-9]*).*/\1/p}")
+	kill "$id"
+done
+
+
