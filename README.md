@@ -1,2 +1,2 @@
 # ratconfig
-My Ratpoisonrc bare minimum config file and scripts
+My Ratpoisonwm bare minimum config file and scripts
